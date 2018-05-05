@@ -1,28 +1,13 @@
 package com.chenps3.algs;
 
-import java.util.Iterator;
 
-public class Stack<T> implements Iterable<T>{
-    public Iterator<T> iterator() {
-        return null;
-    }
+public interface Stack<T> extends Iterable<T> {
 
-    public Stack() {
-    }
+    void push(T item);
 
-    public void push(T item){
+    T pop();
 
-    }
+    boolean isEmpty();
 
-    public T pop(){
-        return null;
-    }
-
-    public boolean isEmpty(){
-        return false;
-    }
-
-    public int size(){
-        return 0;
-    }
+    int size();
 }
