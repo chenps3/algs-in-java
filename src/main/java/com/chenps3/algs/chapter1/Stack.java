@@ -1,4 +1,4 @@
-package com.chenps3.algs;
+package com.chenps3.algs.chapter1;
 
 
 public interface Stack<T> extends Iterable<T> {

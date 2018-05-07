@@ -1,4 +1,4 @@
-package com.chenps3.algs;
+package com.chenps3.algs.chapter1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
