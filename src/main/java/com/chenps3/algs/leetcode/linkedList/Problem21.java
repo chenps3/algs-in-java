@@ -1,10 +1,10 @@
-package com.chenps3.algs.leetcode;
+package com.chenps3.algs.leetcode.linkedList;
 
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/description/
  */
 public class Problem21 {
-    public class ListNode {
+    private class ListNode {
         int val;
         ListNode next;
         ListNode(int x) {
@@ -15,7 +15,7 @@ public class Problem21 {
     /*
       使用虚拟结点做头部
      */
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
         ListNode tail = dummy;
         while (l1 != null && l2 != null) {
@@ -30,5 +30,9 @@ public class Problem21 {
         }
         tail.next = l1 != null ? l1 : l2;
         return dummy.next;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
