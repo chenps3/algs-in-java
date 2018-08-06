@@ -13,7 +13,7 @@ public class InsertSort {
 
     public static <T> void sort(Comparable<T>[] a) {
         for (int i = 1; i < a.length; i++) {
-            //将a[i]插入到a[0]至a[i-1]中合适的位置
+            //将a[i]插入到a[0]至a[i]中合适的位置
             for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
                 exch(a, j, j - 1);
             }
@@ -23,9 +23,13 @@ public class InsertSort {
     public static <T> void sortV2(Comparable<T>[] a) {
         for (int i = 1; i < a.length; i++) {
             //将a[i]插入到a[0]至a[i-1]中合适的位置
-            for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
-                //todo 改进，一次exch要访问4次数组，可减少访问次数，将大元素右移一位而不交换
+            Comparable<T> curr = a[i];
+            int j = i;
+            for (; j > 0 && less(curr, a[j - 1]); j--) {
+                //改进，一次exch要访问4次数组，可减少访问次数，将大元素右移一位而不交换
+                a[j] = a[j - 1];
             }
+            a[j] = curr;
         }
     }
 
@@ -70,7 +74,7 @@ public class InsertSort {
     public static void main(String[] args) {
         String[] input = input();
         show(input);
-        sort(input);
+        sortV2(input);
         assert isSorted(input);
         show(input);
     }

@@ -9,10 +9,24 @@ import java.io.IOException;
 //基于插入排序【倒置数越少，性能越好】的特点
 //基本思想：先令数组中任意间隔为h的元素是有序的，每轮排序后，h越来越小，当h为1时数组整体有序了
 //下列算法使用序列 1/2(3k-1)，从N/3到1
+//在大型数组乱序数组中的性能也很好
 public class ShellSort {
 
     public static <T> void sort(Comparable<T>[] a) {
-        //实现
+        int N = a.length;
+        int h = 1;
+        while (h < N / 3) {
+            h = 3 * h + 1;      //1,4,13,40,121...
+        }
+        while (h >= 1) {
+            for (int i = h; i < N; i++) {
+                //对子序列插入排序
+                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
+                    exch(a, j, j - h);
+                }
+            }
+            h = h / 3;
+        }
     }
 
     private static <T> boolean less(Comparable<T> v, Comparable<T> w) {
