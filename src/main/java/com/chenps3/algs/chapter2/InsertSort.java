@@ -33,6 +33,8 @@ public class InsertSort {
         }
     }
 
+    //todo 改进：二分插入
+
     private static <T> boolean less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo((T) w) < 0;
     }
