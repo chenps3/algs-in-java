@@ -1,7 +1,9 @@
-package com.chenps3.algs.leetcode.linkedList;
+package com.chenps3.algs.leetcode;
 
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ *
+ * 链表
  */
 public class Problem21 {
     private class ListNode {

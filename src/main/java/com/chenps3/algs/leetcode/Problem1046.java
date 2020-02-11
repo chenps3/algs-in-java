@@ -2,7 +2,7 @@ package com.chenps3.algs.leetcode;
 
 /**
  * https://leetcode.com/problems/last-stone-weight/
- * Heap
+ * 堆
  *
  * @Author chenguanhong
  * @Date 2020-02-08

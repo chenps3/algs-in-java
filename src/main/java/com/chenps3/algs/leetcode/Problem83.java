@@ -1,7 +1,9 @@
-package com.chenps3.algs.leetcode.linkedList;
+package com.chenps3.algs.leetcode;
 
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+ *
+ * 链表
  */
 public class Problem83 {
     private class ListNode {

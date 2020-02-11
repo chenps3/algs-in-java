@@ -2,7 +2,7 @@ package com.chenps3.algs.leetcode;
 
 /**
  * https://leetcode.com/problems/kth-largest-element-in-a-stream/
- * Heap
+ * 堆
  *
  * @Author chenguanhong
  * @Date 2020-02-07

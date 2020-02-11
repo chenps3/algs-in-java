@@ -1,11 +1,8 @@
 package com.chenps3.algs.leetcode;
 
-
-import edu.princeton.cs.algs4.StdIn;
-
 /**
  * https://leetcode.com/problems/kth-largest-element-in-an-array/
- * Heap
+ * 堆
  *
  * @Author chenguanhong
  * @Date 2020-02-09
