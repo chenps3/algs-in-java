@@ -22,7 +22,7 @@ public class Problem264 {
 
     //解法1：构建小根堆
     //从小到大把每个丑数都放进堆
-    //删除堆顶n-1次，最后留在堆顶的就是第n大丑数
+    //删除堆顶n-1次，最后留在堆顶的就是第n个丑数
     //注意int溢出的可能性
     private int heapSolution(int n) {
         IntMinHeap heap = new IntMinHeap();
@@ -41,7 +41,7 @@ public class Problem264 {
     }
 
 
-    static class IntMinHeap {
+    private static class IntMinHeap {
 
         private long[] pq;
         private int n;

@@ -34,12 +34,12 @@ public class Problem1046 {
 
     static class IntMaxHeap {
 
-        public IntMaxHeap(int capacity) {
+        private IntMaxHeap(int capacity) {
             pq = new int[capacity + 1];
             n = 0;
         }
 
-        public void insert(int val) {
+        private void insert(int val) {
             if (n + 1 == pq.length) {
                 resize(pq.length * 2);
             }
@@ -47,7 +47,7 @@ public class Problem1046 {
             swim(n);
         }
 
-        public int delMax() {
+        private int delMax() {
             if (isEmpty()) {
                 throw new RuntimeException("empty heap");
             }
@@ -57,7 +57,7 @@ public class Problem1046 {
             return max;
         }
 
-        public int size() {
+        private int size() {
             return n;
         }
 

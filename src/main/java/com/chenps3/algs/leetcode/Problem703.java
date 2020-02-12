@@ -44,18 +44,18 @@ class Problem703 {
         return heap.getMin();
     }
 
-    static class IntMinHeap {
+    private static class IntMinHeap {
 
         private int[] pq;
 
         private int n;
 
-        public IntMinHeap(int capacity) {
+        private IntMinHeap(int capacity) {
             pq = new int[capacity + 1];
             n = 0;
         }
 
-        public void insert(int x) {
+        private void insert(int x) {
             if (n == pq.length - 1) {
                 resize(2 * pq.length);
             }
@@ -63,7 +63,7 @@ class Problem703 {
             swim(n);
         }
 
-        public int delMin() {
+        private  int delMin() {
             if (isEmpty()) {
                 throw new RuntimeException("empty heap");
             }

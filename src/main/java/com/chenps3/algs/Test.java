@@ -1,8 +1,5 @@
 package com.chenps3.algs;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.BinaryOperator;
