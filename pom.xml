@@ -25,6 +25,7 @@
     <modules>
         <module>algs-assignment</module>
         <module>algs-leetcode</module>
+        <module>algs-impl</module>
     </modules>
 
 </project>
