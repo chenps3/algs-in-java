@@ -1,7 +1,5 @@
 package com.chenps3.algs.leetcode;
 
-import edu.princeton.cs.algs4.In;
-
 /**
  * https://leetcode.com/problems/ugly-number-ii/
  * 堆
