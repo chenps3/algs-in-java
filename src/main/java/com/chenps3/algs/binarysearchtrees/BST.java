@@ -2,6 +2,7 @@ package com.chenps3.algs.binarysearchtrees;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 二叉搜索树基本实现
@@ -172,7 +173,61 @@ public class BST<K extends Comparable<K>, V> {
         return keys(min(), max());
     }
 
+    //BST在给定范围内的key的数量
+    public int size(K lo, K hi) {
+        if (lo == null) {
+            throw new IllegalArgumentException();
+        }
+        if (hi == null) {
+            throw new IllegalArgumentException();
+        }
+        if (lo.compareTo(hi) > 0) {
+            return 0;
+        }
+        if (contains(hi)) {
+            return rank(hi) - rank(lo) + 1;
+        }
+        return rank(hi) - rank(lo);
+    }
+
+    //中序遍历，非递归版本
+    public Iterable<K> keys2() {
+        Stack<Node> stack = new Stack<>();
+        Queue<K> queue = new LinkedList<>();
+        Node x = root;
+        while (x != null || !stack.isEmpty()) {
+            if (x != null) {
+                stack.push(x);
+                x = x.left;
+            } else {
+                x = stack.pop();
+                queue.add(x.key);
+                x = x.right;
+            }
+        }
+        return queue;
+    }
+
 //    ---------------------------------------helpers---------------------------------------
+
+    //是否是BST
+    private boolean isBST() {
+        return isBST(root, null, null);
+    }
+
+    //x子树是否BST
+    private boolean isBST(Node x, K min, K max) {
+        if (x == null) {
+            return true;
+        }
+        if (min != null && min.compareTo(x.key) > 0) {
+            return false;
+        }
+        if (max != null && max.compareTo(x.key) < 0) {
+            return false;
+        }
+        return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
+    }
 
     //中序遍历
     private void keys(Node x, Queue<K> queue, K lo, K hi) {
@@ -191,6 +246,7 @@ public class BST<K extends Comparable<K>, V> {
             keys(x.right, queue, lo, hi);
         }
     }
+
 
     private Iterable<K> keys(K min, K max) {
         Queue<K> queue = new LinkedList<>();
