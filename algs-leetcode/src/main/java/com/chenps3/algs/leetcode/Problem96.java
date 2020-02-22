@@ -6,6 +6,7 @@ package com.chenps3.algs.leetcode;
  * <p>
  * 树
  * 动态规划
+ *
  * @Author chenguanhong
  * @Date 2020-02-21
  */
@@ -17,26 +18,17 @@ public class Problem96 {
     }
 
     public int numTrees(int n) {
-        if (n == 0) {
-            return 0;
+        int[] dp = new int[n + 1];      //1到n
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i < n + 1; i++) {
+            int tmp = 0;
+            for (int j = 0; j < i; j++) {
+                tmp += dp[j] * dp[i - j - 1];
+            }
+            dp[i] = tmp;
         }
-        return numTrees1(1, n);
+        return dp[n];
     }
 
-    //最小值min，最大值max的子树数量
-    public int numTrees1(int min, int max) {
-        int result = 0;
-        if (min > max) {
-            return 1;       //空树
-        }
-        if (min == max) {
-            return 1;
-        }
-        for (int i = min; i <= max; i++) {
-            int left = numTrees1(min, i - 1);
-            int right = numTrees1(i + 1, max);
-            result += left * right;
-        }
-        return result;
-    }
 }
