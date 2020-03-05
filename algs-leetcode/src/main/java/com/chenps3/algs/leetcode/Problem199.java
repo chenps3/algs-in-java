@@ -6,30 +6,29 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+ * https://leetcode-cn.com/problems/binary-tree-right-side-view/
+ * 二叉树
  *
  * @Author chenguanhong
- * @Date 2020-02-21
+ * @Date 2020-03-05
  */
-public class Problem102 {
+public class Problem199 {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
-        List<List<Integer>> levelOrder = levelOrder(root);
-        for (List<Integer> list : levelOrder) {
-            for (Integer i : list) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
+
     }
 
-    //基于队列的层序遍历
-    public static List<List<Integer>> levelOrder(TreeNode root) {
+    //层序遍历后取每层的最右边
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        List<List<Integer>> levelOrder = levelOrder(root);
+        for (List<Integer> list : levelOrder) {
+            res.add(list.get(list.size() - 1));
+        }
+        return res;
+    }
+
+    private List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
             return res;
@@ -37,23 +36,22 @@ public class Problem102 {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            int currLevelSize = queue.size();       //重点
-            List<Integer> currLevelVal = new ArrayList<>();
-            while (currLevelSize-- > 0) {
+            int levelSize = queue.size();
+            List<Integer> thisLevel = new ArrayList<>();
+            while (levelSize-- > 0) {
                 TreeNode node = queue.poll();
                 if (node != null) {
-                    currLevelVal.add(node.val);
+                    thisLevel.add(node.val);
                     queue.add(node.left);
                     queue.add(node.right);
                 }
             }
-            if (currLevelVal.size() > 0) {
-                res.add(currLevelVal);
+            if (thisLevel.size() > 0) {
+                res.add(thisLevel);
             }
         }
         return res;
     }
-
 
     private static class TreeNode {
         private int val;
@@ -64,5 +62,4 @@ public class Problem102 {
             this.val = val;
         }
     }
-
 }
