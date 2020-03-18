@@ -1,8 +1,5 @@
 package com.chenps3.algs.leetcode.concurrency;
 
-
-import java.util.concurrent.Semaphore;
-
 /**
  * 法3：使用volatile变量 or 原子变量
  * https://leetcode-cn.com/problems/print-in-order/
