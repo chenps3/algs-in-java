@@ -35,7 +35,6 @@ public class Problem1116V2 {
     // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
         while (true) {
-            lock.isFair()
             lock.lock();
             try {
                 while (!printZero) {
