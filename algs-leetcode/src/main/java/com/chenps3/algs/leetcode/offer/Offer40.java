@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 /**
  * https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
- *
+ * top k问题
+ * 法1 堆
+ * 法2 partition
  * @Author chenguanhong
  * @Date 2020/4/29
  */
@@ -17,6 +19,7 @@ public class Offer40 {
             System.out.println(i);
         }
     }
+
 
     public static int[] getLeastNumbers(int[] arr, int k) {
         int lo = 0;

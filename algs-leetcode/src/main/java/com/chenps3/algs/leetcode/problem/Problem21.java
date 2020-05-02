@@ -6,7 +6,7 @@ package com.chenps3.algs.leetcode.problem;
  * 链表
  */
 public class Problem21 {
-    private class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
         ListNode(int x) {
