@@ -3,7 +3,7 @@ package com.chenps3.algs.leetcode.problem;
 /**
  * https://leetcode-cn.com/problems/powx-n/
  * <p>
- * 二分查找
+ * 二分查找 + 递归
  *
  * @Author chenguanhong
  * @Date 2020-02-24
@@ -31,10 +31,7 @@ public class Problem50 {
         if (n == 1) {
             return x;
         }
-        if (n == -1) {
-            return 1 / x;
-        }
-        long m = n > 0 ? n : -1L * n;
+        long m = n > 0 ? n : -1L * n;       //用int的话Integer.MinValue会溢出
         double tmp;
         double power = myPow(x, (int) (m / 2));
         if (n % 2 == 0) {

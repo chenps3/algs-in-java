@@ -1,6 +1,7 @@
 package com.chenps3.algs.leetcode.problem;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -75,7 +76,7 @@ public class Problem129 {
 
     //使用栈实现dfs
     private static List<List<Integer>> stackDfs(TreeNode root) {
-        List<List<Integer>> allPaths = new ArrayList<>();
+        List<List<Integer>> allPaths = new LinkedList<>();
         if (root == null) {
             return allPaths;
         }

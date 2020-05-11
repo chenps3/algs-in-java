@@ -11,36 +11,28 @@ import com.chenps3.algs.leetcode.problem.Problem21;
 public class Review {
 
     public static void main(String[] args) {
-
+        System.out.println(myPow(2.0, -2));
     }
 
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(Integer.MIN_VALUE);
-        ListNode curr = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                curr.next = l1;
-                l1 = l1.next;
+    public static double myPow(double x, int n) {
+        if (x == 0.0) {
+            return 0;
+        }
+        if (n == 0) {
+            return 1;
+        }
+        int k = Math.abs(n);
+        int t = 1;
+        double y = x;
+        while (t != k) {
+            if (t * 2 <= k) {
+                t = t * 2;
+                y = y * y;
             } else {
-                curr.next = l2;
-                l2 = l2.next;
+                t = t + 1;
+                y = y * x;
             }
-            curr = curr.next;
         }
-        if (l1 != null) {
-            curr.next = l1;
-        } else {
-            curr.next = l2;
-        }
-        return dummy.next;
-    }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
+        return n > 0 ? y : 1 / y;
     }
 }

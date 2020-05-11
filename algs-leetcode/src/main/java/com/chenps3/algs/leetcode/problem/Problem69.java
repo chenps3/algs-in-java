@@ -16,11 +16,12 @@ public class Problem69 {
 //        System.out.println(a1 == 2);
 //        int a2 = mySqrt(8);
 //        System.out.println(a2 == 2);
-        System.out.println(mySqrt(2));
+        System.out.println(mySqrt3(4));
 
     }
 
-    public static int mySqrt(int x) {
+    //二分法
+    public static int mySqrt1(int x) {
         if (x == 0) {
             return 0;
         }
@@ -41,5 +42,26 @@ public class Problem69 {
             }
         }
         return hi;
+    }
+
+
+    //牛顿法,这个是整数版本，准确的应该用double，见mySqrt3
+    //https://www.zhihu.com/question/20690553/answer/543620219
+    public static int mySqrt2(int x) {
+        int t = 1;
+        while (t - x / t != 0) {
+            t = (t + x / t) / 2;
+        }
+        return t;
+    }
+
+
+    public static double mySqrt3(int x) {
+        double eps = 1e-12;
+        double t = x;
+        while (Math.abs(t - x / t) > eps) {     //double数值精度问题
+            t = (t + x / t) / 2;
+        }
+        return t;
     }
 }
