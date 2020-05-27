@@ -37,3 +37,11 @@ Offer62 - 约瑟夫环
 15 - 求三数之和
 169 - 求众数
 41 - 求缺失的第一个正数
+
+
+## 位运算相关
+
+只出现一次的数字     https://leetcode-cn.com/problems/single-number/
+只出现一次的数字2    https://leetcode-cn.com/problems/single-number-ii/
+缺失的数字          https://leetcode-cn.com/problems/missing-number/
+找不同              https://leetcode-cn.com/problems/find-the-difference/
